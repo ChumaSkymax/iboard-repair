@@ -30,7 +30,7 @@ import iPadScreenRepair from "./iPad-screen-repair.svg";
 import iPadRepair from "./ipad-repair.svg";
 import playButton from "./playButton.svg";
 import googleIcon from "./googleIcon.svg";
-import iBoardLogo from "./IBoardLogo.svg";
+import iBoardLogo from "./iBoardLogo.svg";
 
 // Optional: export all assets as array (useful for galleries or animations)
 export const assets = {
