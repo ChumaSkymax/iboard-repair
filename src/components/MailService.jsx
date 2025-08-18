@@ -17,12 +17,12 @@ const MailService = () => {
   return (
     <section
       id="mail-service"
-      className="scroll-mt-20 flex flex-col items-center px-8 md:px-16 lg:px-24 xl:px-32 py-14 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+      className="scroll-mt-20 flex flex-col items-center px-8 md:px-16 lg:px-24 xl:px-32 py-14 bg-gradient-to-b from-black via-gray-900 to-black"
     >
-      <Title title="Fast & Reliable Mail-in Service" />
+      <Title title="Fast & Reliable Mail-in Service" align="left" />
 
       <div>
-        <p className="text-gray-300 text-center mt-2 mb-4">
+        <p className="text-gray-300 text-center mt-2 mb-4 max-md:text-left">
           Can’t make it to our shop? No problem! With our secure mail-in
           service, you can send your device from anywhere. Once it arrives, our
           expert technicians get to work—diagnosing, repairing, and sending it
