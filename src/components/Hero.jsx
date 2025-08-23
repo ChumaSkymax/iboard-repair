@@ -82,8 +82,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/70 z-0"></div>
 
       {/* Content with higher z-index */}
-      <div className="z-10 relative">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl max-sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
+      <div className="z-10 relative mt-6 sm:mt-8">
+        <h1 className="text-4xl sm:text-5xl md:text-5xl max-sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
           Professional <span className="text-[#00c897]">Board Repair</span> You
           Can Rely On
         </h1>
@@ -107,11 +107,14 @@ const Hero = () => {
             <img src="" alt="" />
           </button>  */}
         </div>
-        <div className="mt-8 sm:mt-10">
+        <div className="mt-8 sm:mt-8">
           <h2 className="text-xl sm:text-2xl text-white font-bold mb-3 sm:mb-4 text-center">
             Let's Fix Your Device
           </h2>
-          <ul className="bg-gradient-to-r from-[#277478]/30 to-[#00c897]/30 p-3 sm:p-4 rounded-lg text-white text-xs sm:text-base gap-3 sm:gap-4 flex flex-col sm:flex-row items-center justify-center">
+          <ul
+            className="bg-gradient-to-r from-[#277478]/30 to-[#00c897]/30 py-4 px-2 sm:py-6 sm:px-4 rounded-lg text-white text-xs 
+            sm:text-sm gap-3 sm:gap-4 flex flex-col sm:flex-row items-center justify-center"
+          >
             <li className="flex flex-row gap-2 items-center">
               <span className="max-sm:hidden">
                 <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#277478] rounded-full"></div>
