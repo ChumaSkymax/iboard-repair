@@ -41,7 +41,7 @@ const YouTubeSection = () => {
                     flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300 shadow-lg hover:shadow-[#ffde59]/25"
                 >
                   <a href={video.url} target="_blank" rel="noopener noreferrer">
-                    <img src={assets.playButton} alt="Play-button" />
+                    <img src={playButton} alt="Play-button" />
                   </a>
                 </div>
               </div>
