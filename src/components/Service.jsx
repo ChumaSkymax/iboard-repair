@@ -6,7 +6,7 @@ const Service = () => {
   return (
     <section
       className="scroll-mt-20 flex flex-col 
-    items-center bg-black px-6 md:px-16 lg:px-24 xl:px-32 py-14 "
+    items-center bg-[#ffffff] px-6 md:px-16 lg:px-24 xl:px-32 py-14 "
       id="what-we-fix"
     >
       <Title
@@ -21,22 +21,15 @@ const Service = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="bg-black rounded-2xl border border-red-900/50  hover:bg-gray-800 hover:scale-105 hover:shadow-xl
-                 transition-transform duration-300 ease-in-out m-4 p-4"
+            className="bg-gradient-to-br from-[#277478] to-[#00c897] rounded-2xl border border-[#277478] hover:from-[#277478]/90 hover:to-[#00c897]/90 hover:scale-105 hover:shadow-xl
+                 transition-transform duration-300 ease-in-out m-4 p-6"
           >
-            <div>
-              <img
-                src={service.img}
-                alt={service.title}
-                className="w-full h-auto rounded-xl"
-              />
-            </div>
-            <div className="h-12 w-12  border-2 border-red-500/50  rounded-full flex justify-center items-center mt-6">
+            <div className="h-12 w-12  border-2 border-[#00c897] rounded-full flex justify-center items-center mb-4">
               <img src={service.icon} alt={service.title} className="w-8 " />
             </div>
             <div className="mt-4">
               <h1 className="text-xl font-bold text-white">{service.title}</h1>
-              <p className="text-gray-400 text-sm mt-2">
+              <p className="text-gray-100 text-sm mt-2">
                 {service.description}
               </p>
             </div>

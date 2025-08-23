@@ -89,7 +89,7 @@ export const services = [
   {
     img: brokenPhoneImg,
     icon: dollarIcon,
-    title: "Buy Broken Devices",
+    title: "We Buy Broken Devices",
     description:
       "We purchase broken devices for parts and refurbishment. Get cash for your damaged electronics.",
   },
@@ -122,18 +122,7 @@ export const features = [
     description:
       "All repairs come with a comprehensive 90-day warranty for your peace of mind.",
   },
-  {
-    icon: deliveryCarIcon,
-    title: "Free Shipping",
-    description:
-      "Complimentary shipping labels both ways for our mail-in repair service.",
-  },
-  {
-    icon: tools,
-    title: "Precision Tools",
-    description:
-      "State-of-the-art equipment and microscopes for precise component-level repairs.",
-  },
+
   {
     icon: supportIcon,
     title: "24/7 Support",
@@ -144,19 +133,19 @@ export const features = [
 
 export const stats = [
   {
-    icon: "ri-calendar-line",
+    icon: "years",
     key: "yearsInBusiness",
     suffix: "+",
     label: "Years in Business",
   },
   {
-    icon: "ri-smartphone-line",
+    icon: "devices",
     key: "devicesRepaired",
     suffix: "+",
     label: "Devices Repaired",
   },
   {
-    icon: "ri-user-heart-line",
+    icon: "customers",
     key: "happyCustomers",
     suffix: "+",
     label: "Happy Customers",
@@ -206,15 +195,7 @@ export const youtubeVideos = [
     duration: "59:58",
     url: "https://youtu.be/kphXN4G_bO4?si=tWUfl5ncD9ui754U",
   },
-  {
-    id: 3,
-    title: "Charging Port Repair - Complete Fix Tutorial",
-    description:
-      "Step-by-step charging port replacement for smartphones with professional repair methods",
-    thumbnail: chargingPortRepair,
-    duration: "3:20",
-    url: "https://youtu.be/rhF4VTJ54YE?si=em-lcd6k4j7UAKxg",
-  },
+
   {
     id: 4,
     title: "iPad Pro 12.4th Repair - Logic Board Restoration",
@@ -231,14 +212,9 @@ export const Processes = [
     number: 1,
     title: "Intake Form",
     description:
-      "Please provide your information and information about your device. You will be sent a fedex label after intake is received.",
+      "Please provide your information and information about your device using a form below. You will be sent a fedex label after intake is received.",
   },
-  {
-    number: 2,
-    title: "Mail Your Device",
-    description:
-      "Drop off the phone at a fedex location or call for pickup. You may use any carrier you like if you do not wish to use the label.​.",
-  },
+
   {
     number: 3,
     title: "Communication",

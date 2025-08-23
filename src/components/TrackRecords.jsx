@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Title from "./Title";
 import { assets, stats } from "../assets/assets";
+import { YearsIcon, DevicesIcon, CustomersIcon } from "./icons";
 
 const TrackRecords = () => {
   // State to animate numbers from 0 to their targets
@@ -67,8 +68,8 @@ const TrackRecords = () => {
     <section
       id="track-records"
       className="scroll-mt-20 relative flex flex-col items-center justify-center 
-        px-6 md:px-16 lg:px-24 xl:px-32 bg-[url('/src/assets/trackRecordBg.svg')] 
-        bg-no-repeat bg-cover bg-center py-16"
+        px-6 md:px-16 lg:px-24 xl:px-32 bg-white 
+        py-16"
     >
       <Title
         title="Results That Speak for Themselves"
@@ -80,10 +81,16 @@ const TrackRecords = () => {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-black border-1 border-red-900/50 rounded-2xl p-12 flex flex-col justify-center items-center max-md:flex-wrap "
+            className="bg-gradient-to-br from-[#277478] to-[#00c897] border-2 border-[#ffde59] rounded-2xl p-12 flex flex-col justify-center items-center max-md:flex-wrap shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
           >
-            <div>
-              <i className={`${stat.icon} text-4xl`} />
+            <div className="mb-4">
+              <div className="bg-[#ffde59] rounded-full p-3 w-16 h-16 flex justify-center items-center shadow-lg">
+                <div className="text-[#277478]">
+                  {stat.icon === "years" && <YearsIcon />}
+                  {stat.icon === "devices" && <DevicesIcon />}
+                  {stat.icon === "customers" && <CustomersIcon />}
+                </div>
+              </div>
             </div>
             <div className="text-center text-white">
               <h1 className="text-3xl font-bold">

@@ -50,7 +50,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b px-4 md:px-6 w-full lg:px-24 xl:px-32 bg-black text-white">
+    <header className="sticky top-0 z-50 border-b-2 border-[#277478]/20 px-4 md:px-6 w-full lg:px-24 xl:px-32 bg-white text-gray-700 shadow-lg">
       <div className="flex h-20 justify-between gap-4">
         {/* Left side */}
         <div className="flex gap-2">
@@ -58,7 +58,11 @@ export default function Navbar() {
           <div className="flex items-center md:hidden">
             <Popover>
               <PopoverTrigger asChild>
-                <Button className="group size-8" variant="ghost" size="icon">
+                <Button
+                  className="group size-8 hover:bg-[#277478]/10"
+                  variant="ghost"
+                  size="icon"
+                >
                   {/* burger icon */}
                   <svg
                     className="pointer-events-none"
@@ -88,25 +92,24 @@ export default function Navbar() {
               </PopoverTrigger>
               <PopoverContent
                 align="start"
-                className="w-36 p-2 bg-card border-1 border-secondary md:hidden"
+                className="w-48 p-4 bg-white border-2 border-[#277478]/20 shadow-xl rounded-xl"
               >
                 <NavigationMenu className="max-w-none *:w-full">
-                  <NavigationMenuList className="flex-col items-start gap-1 md:gap-2">
+                  <NavigationMenuList className="flex-col items-start gap-2">
                     {navigationLinks.map((link, index) => (
                       <NavigationMenuItem
                         key={index}
-                        className="w-full  transition-colors duration-200"
+                        className="w-full transition-colors duration-200"
                       >
                         <a
                           href={link.href}
                           onClick={(e) => handleClick(e, link.href)}
-                          className={`py-1.5 w-full block border-primary
+                          className={`py-2 px-3 w-full block rounded-lg transition-all duration-300
                             ${
                               activeSection === link.href.replace("#", "")
-                                ? "text-red-500 border-b-2 border-b-red-500"
-                                : "text-white"
-                            }
-                            hover:text-secondary`}
+                                ? "text-[#00c897] bg-[#277478]/10 border-l-4 border-[#00c897]"
+                                : "text-gray-700 hover:text-[#00c897] hover:bg-[#277478]/5"
+                            }`}
                         >
                           {link.label}
                         </a>
@@ -124,7 +127,7 @@ export default function Navbar() {
               <Logo />
             </a>
             <NavigationMenu className="h-full max-md:hidden">
-              <NavigationMenuList className="h-full flex gap-4">
+              <NavigationMenuList className="h-full flex gap-6">
                 {navigationLinks.map((link, index) => (
                   <NavigationMenuItem
                     key={index}
@@ -133,15 +136,16 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       onClick={(e) => handleClick(e, link.href)}
-                      className={`text-white hover:text-secondary 
-                        border-b-2 border-transparent hover:border-b-secondary 
+                      className={`text-gray-700 hover:text-[#00c897] 
+                        border-b-2 border-transparent hover:border-b-[#00c897] 
                         ${
                           activeSection === link.href.replace("#", "")
-                            ? "text-red-500 border-b-red-500"
+                            ? "text-[#00c897] border-b-[#00c897]"
                             : ""
                         }
                         bg-transparent active:bg-transparent focus:bg-transparent 
-                        h-full justify-center rounded-none py-1.5 font-medium hover:bg-transparent`}
+                        h-full justify-center rounded-none py-1.5 font-medium hover:bg-transparent
+                        transition-all duration-300`}
                     >
                       {link.label}
                     </a>
@@ -157,7 +161,7 @@ export default function Navbar() {
           <Button
             asChild
             size="sm"
-            className="text-sm bg-secondary text-gray-300 py-4 hover:text-secondary"
+            className="text-sm bg-gradient-to-r from-[#277478] to-[#00c897] text-white py-6 px-4 hover:from-[#00c897] hover:to-[#277478] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <a
               href="#mail-service"

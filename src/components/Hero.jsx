@@ -1,4 +1,5 @@
 import React from "react";
+import { assets } from "../assets/assets";
 
 const Hero = () => {
   // Smooth scroll handler
@@ -18,27 +19,48 @@ const Hero = () => {
       id="home"
       className="relative flex flex-col items-center justify-center 
             px-6 md:px-16 lg:px-24 xl:px-32 
-            bg-[url('/src/assets/hero.svg')] bg-no-repeat bg-cover bg-center h-screen"
+            h-screen overflow-hidden"
     >
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center z-0 
+                   min-w-full min-h-full scale-110 sm:scale-100"
+        style={{
+          objectPosition: "center",
+          transform: "scale(1.1)",
+          "@media (min-width: 640px)": {
+            transform: "scale(1)",
+          },
+        }}
+      >
+        <source src={assets.gamingConsoleVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70 z-0"></div>
 
       {/* Content with higher z-index */}
-      <div className="z-10">
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-          Professional <span className="text-secondary">Board Repair</span>
+      <div className="z-10 relative">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl max-sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
+          Professional <span className="text-[#00c897]">Board Repair</span> You
+          Can Rely On
         </h1>
         {/* <p className="mb-4 text-white mt-0 px-10">By Green Wireless</p> */}
-        <p className="text-m md:text-xl md:text-center text-gray-300 mb-8 max-w-3xl mx-auto">
+        <p className="text-sm sm:text-base md:text-xl text-center text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
           Expert iPhone, iPad, MacBook, and gaming console repairs. Fast
           turnaround, nationwide mail-in service, and 90-day warranty.
         </p>
-        <div className="flex flex-col items-start sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col items-center sm:flex-row gap-3 sm:gap-4 justify-center">
           <button
             onClick={(e) => handleClick(e, "#mail-your-device")}
-            className="flex flex-row gap-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 cursor-pointer whitespace-nowrap"
+            className="flex flex-row gap-2 bg-gradient-to-r from-[#277478] to-[#00c897] text-white px-4 py-3 sm:py-2 rounded-lg font-semibold hover:from-[#00c897] hover:to-[#277478] transition-all duration-300 cursor-pointer whitespace-nowrap text-sm sm:text-base w-full sm:w-auto justify-center"
           >
-            <span className="text-m">Mail Your Device</span>
+            <span>Mail Your Device</span>
             <img src="" alt="" />
           </button>
 
@@ -47,6 +69,44 @@ const Hero = () => {
             <span className="text-m">AI Agent</span>
             <img src="" alt="" />
           </button>  */}
+        </div>
+        <div className="mt-8 sm:mt-10">
+          <h2 className="text-xl sm:text-2xl text-white font-bold mb-3 sm:mb-4 text-center">
+            Let's Fix Your Device
+          </h2>
+          <ul className="bg-gradient-to-r from-[#277478]/30 to-[#00c897]/30 p-3 sm:p-4 rounded-lg text-white text-xs sm:text-sm gap-3 sm:gap-4 flex flex-col sm:flex-row items-center justify-center">
+            <li className="flex flex-row gap-2 items-center">
+              <span className="max-sm:hidden">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#277478] rounded-full"></div>
+              </span>
+              iPhone Repair
+            </li>
+            <li className="flex flex-row gap-2 items-center">
+              <span className="max-sm:hidden">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#277478] rounded-full"></div>
+              </span>
+              iPad Repair
+            </li>
+            <li className="flex flex-row gap-2 items-center">
+              <span className="max-sm:hidden">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#277478] rounded-full"></div>
+              </span>
+              MacBook Repair
+            </li>
+            <li className="flex flex-row gap-2 items-center">
+              <span className="max-sm:hidden">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#277478] rounded-full"></div>
+              </span>
+              Gaming Console Repair
+            </li>
+
+            <li className="flex flex-row gap-2 items-center">
+              <span className="max-sm:hidden">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#277478] rounded-full"></div>
+              </span>
+              Mail Service
+            </li>
+          </ul>
         </div>
       </div>
     </section>

@@ -131,38 +131,47 @@ const Testimonials = () => {
 
   const CreateCard = ({ card }) => (
     <div
-      className="p-4 rounded-lg mx-4 w-72  border border-gray-700 cursor-pointer bg-gradient-to-br from-gray-900 via-black to-gray-900
-    shadow-lg overflow-hidden hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 transform hover:-translate-y-2 hover:border-red-500/40 shrink-0"
+      className="p-4 sm:p-6 rounded-xl sm:rounded-2xl mx-2 sm:mx-4 w-64 sm:w-72 border-2 border-[#ffde59] cursor-pointer bg-white
+     shadow-lg sm:shadow-xl overflow-hidden hover:shadow-xl sm:hover:shadow-2xl hover:shadow-[#ffde59]/20 transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2 hover:border-[#277478] shrink-0"
     >
-      <div className="flex gap-2">
-        <img
-          className="size-11 w-8 h-8 rounded-full"
-          src={card.image}
-          alt="User"
-        />
-        <div className="flex justify-center flex-col">
+      <div className="flex gap-2 sm:gap-3 items-center mb-3 sm:mb-4">
+        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#277478] to-[#00c897] rounded-full flex items-center justify-center shadow-lg">
+          <img
+            className="w-4 h-4 sm:w-6 sm:h-6 rounded-full"
+            src={card.image}
+            alt="User"
+          />
+        </div>
+        <div className="flex flex-col">
+          <p className="text-[#277478] font-bold text-xs sm:text-sm">
+            {card.name}
+          </p>
           <div className="flex items-center gap-1">
-            <p className="text-gray-300">{card.name}</p>
+            <span className="text-[#ffde59] text-xs sm:text-sm">★★★★★</span>
           </div>
         </div>
       </div>
-      <p className="text-sm py-4 text-gray-300">{card.description}</p>
-      <div className="flex items-center justify-between text-slate-500 text-xs">
-        <div className="flex items-center gap-1">
-          <span>Posted on</span>
+      <p className="text-xs sm:text-sm py-3 sm:py-4 text-gray-700 leading-relaxed">
+        {card.description}
+      </p>
+      <div className="flex items-center justify-between text-gray-500 text-xs pt-2 border-t border-gray-100">
+        <div className="flex items-center gap-2">
+          <span className="hidden sm:inline">Posted on</span>
           <a
             href="https://g.page/r/CWvseW3AmzdlEBE/review"
             target="_blank"
-            className="hover:text-sky-500"
+            className="hover:text-[#277478] transition-colors duration-200"
           >
             <img
-              className="size-11 w-4 h-4 rounded-full"
+              className="w-4 h-4 rounded-full"
               src={card.image}
-              alt="User"
+              alt="Google"
             />
           </a>
         </div>
-        <p>{card.date}</p>
+        <div className="flex items-center gap-1">
+          <span className="text-[#00c897]">●</span>
+        </div>
       </div>
     </div>
   );
@@ -170,7 +179,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="scroll-mt-20 py-16 px-8 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900"
+      className="scroll-mt-20 py-16 px-8 w-full bg-white"
     >
       <Title
         title="What Our Customers Say"
@@ -192,24 +201,24 @@ const Testimonials = () => {
 
       {/* First Row */}
       <div className="marquee-row w-full mx-auto max-w-7xl overflow-hidden relative">
-        <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-gray-950 via-black to-transparent"></div>
-        <div className="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5">
+        <div className="absolute left-0 top-0 h-full w-8 sm:w-20 z-10 pointer-events-none bg-gradient-to-r from-white via-white to-transparent"></div>
+        <div className="marquee-inner flex transform-gpu min-w-[200%] pt-6 sm:pt-10 pb-3 sm:pb-5">
           {[...cardsData, ...cardsData].map((card, index) => (
             <CreateCard key={index} card={card} />
           ))}
         </div>
-        <div className="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-gray-950 via-black to-transparent"></div>
+        <div className="absolute right-0 top-0 h-full w-8 sm:w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white via-white to-transparent"></div>
       </div>
 
       {/* Second Row (reverse) */}
       <div className="marquee-row w-full mx-auto max-w-7xl overflow-hidden relative">
-        <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-gray-950 via-black to-transparent"></div>
-        <div className="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-10 pb-5">
+        <div className="absolute left-0 top-0 h-full w-8 sm:w-20 z-10 pointer-events-none bg-gradient-to-r from-white via-white to-transparent"></div>
+        <div className="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-6 sm:pt-10 pb-3 sm:pb-5">
           {[...cardsData, ...cardsData].map((card, index) => (
             <CreateCard key={index} card={card} />
           ))}
         </div>
-        <div className="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-gray-950 via-black to-transparent"></div>
+        <div className="absolute right-0 top-0 h-full w-8 sm:w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white via-white to-transparent"></div>
       </div>
     </section>
   );
