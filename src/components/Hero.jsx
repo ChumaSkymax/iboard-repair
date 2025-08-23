@@ -83,7 +83,7 @@ const Hero = () => {
 
       {/* Content with higher z-index */}
       <div className="z-10 relative mt-6 sm:mt-8">
-        <h1 className="text-4xl sm:text-5xl md:text-5xl max-sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-4xl max-sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
           Professional <span className="text-[#00c897]">Board Repair</span> You
           Can Rely On
         </h1>
