@@ -111,7 +111,7 @@ const Hero = () => {
           <h2 className="text-xl sm:text-2xl text-white font-bold mb-3 sm:mb-4 text-center">
             Let's Fix Your Device
           </h2>
-          <ul className="bg-gradient-to-r from-[#277478]/30 to-[#00c897]/30 p-3 sm:p-4 rounded-lg text-white text-xs sm:text-lg gap-3 sm:gap-4 flex flex-col sm:flex-row items-center justify-center">
+          <ul className="bg-gradient-to-r from-[#277478]/30 to-[#00c897]/30 p-3 sm:p-4 rounded-lg text-white text-xs sm:text-base gap-3 sm:gap-4 flex flex-col sm:flex-row items-center justify-center">
             <li className="flex flex-row gap-2 items-center">
               <span className="max-sm:hidden">
                 <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#277478] rounded-full"></div>
