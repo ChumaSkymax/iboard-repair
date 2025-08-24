@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function RepairRequestForm() {
   const [formData, setFormData] = useState({
@@ -19,6 +19,16 @@ export default function RepairRequestForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Scroll to success container when component is submitted
+  useEffect(() => {
+    if (isSubmitted) {
+      const successContainer = document.getElementById("success-container");
+      if (successContainer) {
+        successContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [isSubmitted]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -27,6 +37,25 @@ export default function RepairRequestForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
+
+    // Basic validation
+    const requiredFields = [
+      "deviceType",
+      "customerName",
+      "customerEmail",
+      "customerPhone",
+    ];
+    const missingFields = requiredFields.filter(
+      (field) => !formData[field] || formData[field].trim() === ""
+    );
+
+    if (missingFields.length > 0) {
+      toast.error(
+        `Please fill in all required fields: ${missingFields.join(", ")}`
+      );
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const formDataToSend = new FormData();
@@ -39,7 +68,7 @@ export default function RepairRequestForm() {
       // Add the access key
       formDataToSend.append(
         "access_key",
-        "1515bd9d-8b8c-4d45-ba5f-2383e333b857"
+        "cb416214-c404-4a1c-89a2-6a1fd905a456"
       );
 
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -71,7 +100,10 @@ export default function RepairRequestForm() {
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      toast.error("An error occurred while submitting the form");
+      console.error("Form data that was sent:", formData);
+      toast.error(
+        "An error occurred while submitting the form. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -79,7 +111,10 @@ export default function RepairRequestForm() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col justify-center items-center py-8 sm:py-12">
+      <div
+        id="success-container"
+        className="min-h-screen bg-gradient-to-br from-gray-50 to-white px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col justify-center items-center py-8 sm:py-12"
+      >
         {/* Success Animation Container */}
         <div className="bg-white rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-gradient-to-r from-[#277478] to-[#00c897] shadow-xl sm:shadow-2xl p-6 sm:p-8 md:p-12 max-w-4xl w-full transform animate-pulse">
           {/* Header Section with Icon */}
