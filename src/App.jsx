@@ -10,6 +10,7 @@ import Testimonials from "./components/testimonials";
 import MailService from "./components/MailService";
 import MailDeviceForm from "./components/MailDeviceForm";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -21,10 +22,11 @@ const App = () => {
       <WhyChooseUs />
       <TrackRecords />
       <ProjectSection />
-      <YouTubeSection />
+      {/* <YouTubeSection /> */}
       <Testimonials />
       <MailDeviceForm />
       <Footer />
+      <Toaster />
     </div>
   );
 };

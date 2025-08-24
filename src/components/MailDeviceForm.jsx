@@ -1,5 +1,4 @@
-"use client";
-
+import toast from "react-hot-toast";
 import { useState } from "react";
 
 export default function RepairRequestForm() {
@@ -25,15 +24,57 @@ export default function RepairRequestForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const formDataToSend = new FormData();
+
+      // Add all form fields to FormData
+      Object.keys(formData).forEach((key) => {
+        formDataToSend.append(key, formData[key]);
+      });
+
+      // Add the access key
+      formDataToSend.append(
+        "access_key",
+        "1515bd9d-8b8c-4d45-ba5f-2383e333b857"
+      );
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Form Submitted Successfully");
+        // Reset form data
+        setFormData({
+          deviceType: "",
+          deviceModel: "",
+          deviceColor: "",
+          issueDescription: "",
+          customerName: "",
+          customerEmail: "",
+          customerPhone: "",
+          customerAddress: "",
+          customerCity: "",
+          customerState: "",
+          customerZip: "",
+        });
+        setIsSubmitted(true);
+      } else {
+        toast.error(data.message || "Form submission failed");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast.error("An error occurred while submitting the form");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1000);
+    }
   };
 
   if (isSubmitted) {
@@ -251,6 +292,15 @@ export default function RepairRequestForm() {
             name="deviceModel"
             placeholder="Device Model"
             value={formData.deviceModel}
+            onChange={handleInputChange}
+            className="w-full p-4 mb-4 text-gray-700 outline-0 border border-gray-300 rounded-xl focus:border-[#00c897] focus:ring-2 focus:ring-[#00c897]/20 transition-all duration-200 bg-gray-50 hover:bg-white"
+          />
+          {/* Device Color */}
+          <input
+            type="text"
+            name="deviceColor"
+            placeholder="Device Color"
+            value={formData.deviceColor}
             onChange={handleInputChange}
             className="w-full p-4 mb-4 text-gray-700 outline-0 border border-gray-300 rounded-xl focus:border-[#00c897] focus:ring-2 focus:ring-[#00c897]/20 transition-all duration-200 bg-gray-50 hover:bg-white"
           />

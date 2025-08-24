@@ -17,20 +17,21 @@ const YouTubeSection = () => {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 py-12 ">
         {youtubeVideos.map((video) => (
-          <div
+          <a
             key={video.id}
-            className="group cursor-pointer relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[#ffde59] hover:border-[#ffde59]/80"
+            href={video.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group cursor-pointer relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[#ffde59] hover:border-[#ffde59]/80 block"
           >
             {/* Thumbnail with overlay */}
             <div className="relative overflow-hidden">
-              <a href={video.url} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-48 object-cover object-top group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </a>
+              <img
+                src={video.thumbnail}
+                alt={video.title}
+                className="w-full h-48 object-cover object-top group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+              />
 
               <div className="absolute inset-0 bg-gradient-to-t from-[#277478]/60 via-transparent to-[#277478]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
@@ -40,9 +41,7 @@ const YouTubeSection = () => {
                   className="w-16 h-16 bg-gradient-to-r from-[#ffde59] to-[#ffde59]/80 rounded-full 
                     flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300 shadow-lg hover:shadow-[#ffde59]/25"
                 >
-                  <a href={video.url} target="_blank" rel="noopener noreferrer">
-                    <img src={playButton} alt="Play-button" />
-                  </a>
+                  <img src={playButton} alt="Play-button" />
                 </div>
               </div>
 
@@ -61,7 +60,7 @@ const YouTubeSection = () => {
                 {video.description}
               </p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
